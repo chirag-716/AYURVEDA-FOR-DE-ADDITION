@@ -1,0 +1,8 @@
+{
+  "name": "ayurveda-de-addiction-portal",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "cd frontend && npx --yes live-server --port=5173 --open=index.html --watch=."
+  }
+}

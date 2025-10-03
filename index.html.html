@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AyurVimukta - Ayurvedic De-Addiction Support</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>🌿 AyurVimukta</h1>
+            <p>Your Path to Liberation through Ayurveda</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="intro">
+            <h2>Embrace a Life of Balance and Freedom</h2>
+            <p>Ayurveda, the ancient science of life, offers a holistic approach to overcoming addiction. It views addiction not as a moral failing, but as a deep-rooted imbalance of the body's 'doshas' (Vata, Pitta, Kapha) and mind. Our goal is to detoxify the body (<strong>Shodhana</strong>), pacify symptoms (<strong>Shamana</strong>), and rejuvenate the system (<strong>Rasayana</strong>) to restore your natural state of health and harmony.</p>
+        </section>
+
+        {% for key, value in data.items() %}
+        <section id="{{ key }}" class="card">
+            <h2>{{ value.title }}</h2>
+            <p class="description">{{ value.description }}</p>
+            
+            <div class="content-grid">
+                <div class="grid-item">
+                    <h3>Key Herbs (Dravyaguna)</h3>
+                    <ul>
+                        {% for herb in value.herbs %}
+                        <li><strong>{{ herb.name }}:</strong> {{ herb.use }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <h3>Lifestyle Changes (Vihara)</h3>
+                    <ul>
+                        {% for tip in value.lifestyle %}
+                        <li>{{ tip }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </section>
+        {% endfor %}
+
+        <section class="disclaimer card">
+            <h3>⚠ Important Disclaimer</h3>
+            <p>The information provided on this website is for educational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or another qualified health provider with any questions you may have regarding a medical condition.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AyurVimukta. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
